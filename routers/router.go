@@ -13,4 +13,10 @@ func init() {
 	beego.Router("/game/?:id", &controllers.GamePage{})
 
 	beego.Router("/user/?:method", &controllers.UserController{})
+
+	//页面
+	beego.Router("/l", &controllers.LpPage{})
+	beego.Router("/h", &controllers.HelpPage{})
+	beego.Router("/p", &controllers.PrivacyPage{})
+	beego.Router("/t", &controllers.TNCPage{})
 }
