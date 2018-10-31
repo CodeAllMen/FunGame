@@ -43,7 +43,7 @@ div.footer p {
     margin: 10px auto;
     padding: 15px;
     text-align: centers;
-    font-size: 17px;
+    font-size: 12px;
     line-height: 20px;
     font-family: sans-serif;
     margin-top: -20px;
@@ -88,7 +88,7 @@ button.buttonOne {
     height: 66px;
     width: 300px;
     padding: 0;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 0 auto;
     border-radius: 30px;
     background-color: #9644a5;
     font-family: 'Comic Sans MS', cursive;
