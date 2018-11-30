@@ -12,6 +12,14 @@ type Games struct {
 	PlayNum int
 }
 
+type Users struct {
+	Id       int64 `orm:"pk;auto"`
+	UserName string
+	Password string
+	Sp       string
+	Country  string
+}
+
 func init() {
-	orm.RegisterModel(new(Games))
+	orm.RegisterModel(new(Games), new(Users))
 }

@@ -17,7 +17,7 @@ func (c *SubResultControllers) Get() {
 		c.Data["URL"] = "/"
 	} else {
 		c.Data["text"] = "Nieudana subskrypcja"
-		c.Data["URL"] = "http://www.gooogle.com"
+		c.Data["URL"] = "/dm/pl/lp"
 	}
-	c.TplName = "dm/pl/sub_failed.html"
+	c.TplName = "dm/pl/sub_result.html"
 }

@@ -19,6 +19,7 @@ type LoginController struct {
 }
 
 func (c *LoginController) Get() {
+	c.Data["status"] = "0"
 	c.TplName = "login.html"
 }
 

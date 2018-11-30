@@ -10,6 +10,8 @@ func init() {
 	beego.Router("/", &controllers.MainController{})
 	beego.Router("/login", &controllers.LoginController{})
 
+	beego.Router("/registere/username", &controllers.RegisteredControllers{}) // 电话号码注册用户
+
 	//Dimoco
 	beego.Router("/dm/pl/lp", &dimoco_pl.PLLPPageControllers{})
 	beego.Router("/dm/pl/welcome", &dimoco_pl.SubResultControllers{})
@@ -19,6 +21,10 @@ func init() {
 	beego.Router("/game/?:id", &controllers.GamePage{})
 
 	beego.Router("/user/?:method", &controllers.UserController{})
+
+	// 波兰退订页面
+	beego.Router("/unsub/page", &dimoco_pl.UnsubPageControllers{})
+	beego.Router("/unsub/result", &dimoco_pl.UnsubResultControllers{})
 
 	// beego.Router("/pl/start",&dimoco_pl.)
 

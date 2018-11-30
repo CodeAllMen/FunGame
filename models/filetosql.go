@@ -28,11 +28,16 @@ func FileToSql() {
 			o := orm.NewOrm()
 			fmt.Println(data)
 			var game Games
-			game.Img = data[2]
-			game.Name = data[1]
-			game.Url = data[0]
-			game.PlayNum = int(rand.Int63n(1765237))
-			o.Insert(&game)
+			o.QueryTable("games").Filter("img", data[2]).One(&game)
+			fmt.Println(game)
+			if game.Id == 0 {
+				game.Img = data[2]
+				game.Name = data[1]
+				game.Url = data[0]
+				game.PlayNum = int(rand.Int63n(1765237))
+				o.Insert(&game)
+			}
+
 		}
 	}
 }
