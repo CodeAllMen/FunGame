@@ -20,14 +20,34 @@
 
       <div class="content">
         <p class="m-b">
-                Podając swój numer telefonu komórkowego, potwierdzasz, że chcesz zrezygnować z subskrypcji
+          Czy na pewno chcesz zrezygnować z subskrypcji?
         </p>
         <!-- <input class="fill_num_test m-b" value="0031" readonly /> -->
-        <input class="fill_num m-b" id="phone" placeholder="48xxxxxxxxx" />
         <a type="button" class="unsub" onclick="unsub()">Anuluj subskrypcję</a>
-        <p class="last">*Voer uw nummer w met de landcode (np.48 w de PL)</p>
+        {{/*<p class="last">*Voer uw nummer w met de landcode (np.48 w de PL)</p>*/}}
+        <p style="font-size: 11px;
+    line-height: 17px;">Aby dokonać rezygnacji należy wysłać SMS o treści STOP CFG na numer 80425 (koszt: 0 zł). <br>
+          Kontakt, w razie reklamacji: info-pl@mobileinfo.biz, <br>
+          numer telefoniczny: 022 397 4315 (opłata lokalna) od poniedziałku do piątku w godzinach 09:00 – 17:00</p>
+      </div>
+
+      <div class="sub">
+
+        <p style="    font-weight: Bold;
+    font-size: 14px;
+    margin: 0 15px;
+    text-align: center;
+    line-height: 22px;">
+          <a href="/dm/pl/tnc" style="color: #f3f3f5;">Warunki</a> -
+          <a href="/dm/pl/help" style="color: #f3f3f5;">Kontakt i Rezygnacja z subskrypcji</a> -
+          <a href="/dm/pl/privacy" style="color: #f3f3f5;">Oświadczenie o prywatności</a> -
+          <a href="/dm/pl/disclaimer" style="color: #ffffff">Zrzeczenie się</a>
+        </p>
+
       </div>
     </div>
+
+
   </body>
   <script type="text/javascript">
     function closeWin() {
@@ -45,9 +65,9 @@
     }
 
     function unsub() {
-      var phone =  $("#phone").val();
+      // var phone =  $("#phone").val();
       window.location.href =
-        "http://pl.leadernet-hk.com/msisdn/unsub?msisdn=" + phone;
+        "http://pl.leadernet-hk.com/unsub/cookieor3g?msisdn={{.msisdn}}" ;
     }
   </script>
 </html>

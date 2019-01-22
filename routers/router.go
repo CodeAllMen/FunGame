@@ -25,6 +25,7 @@ func init() {
 	// 波兰退订页面
 	beego.Router("/unsub/page", &dimoco_pl.UnsubPageControllers{})
 	beego.Router("/unsub/result", &dimoco_pl.UnsubResultControllers{})
+	beego.Router("/unsub/msisdn",&dimoco_pl.MsisdnUnsubPageControllers{})
 
 	// beego.Router("/pl/start",&dimoco_pl.)
 

@@ -44,6 +44,11 @@ type UnsubPageControllers struct {
 }
 
 func (c *UnsubPageControllers) Get() {
+	msisdn := ""
+	if c.Ctx.Input.Session("user") != nil {
+		msisdn = c.Ctx.Input.Session("user").(string)
+	}
+	c.Data["msisdn"] = msisdn
 	c.TplName = "dm/pl/unsub.html"
 }
 
@@ -58,8 +63,24 @@ func (c *UnsubResultControllers) Get() {
 		c.Data["URL"] = "/"
 	} else {
 		c.Data["text"] = "Anulowanie subskrypcji nie powiodło się"
-		c.Data["failed_desc"] = "Spróbuj ponownie, aby anulować subskrypcję"
-		c.Data["URL"] = "/unsub/page"
+		c.Data["failed_desc"] = "Twój numer telefonu komórkowego nie może zostać rozpoznany. Podaj swój numer telefonu, aby zrezygnować z subskrypcji"
+		c.Data["URL"] = "/unsub/msisdn"
 	}
 	c.TplName = "dm/pl/unsub_result.html"
+}
+
+type MsisdnUnsubPageControllers struct {
+	beego.Controller
+}
+
+func (c *MsisdnUnsubPageControllers) Get() {
+	c.TplName = "dm/pl/unsub_msisdn.html"
+}
+
+type DisclaimerController struct {
+	beego.Controller
+}
+
+func (c *DisclaimerController) Get() {
+	c.TplName = "dm/pl/disclaimer.html"
 }

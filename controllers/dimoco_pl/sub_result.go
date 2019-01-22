@@ -20,7 +20,7 @@ func (c *SubResultControllers) Get() {
 
 	if subStatus == "s" {
 		c.SetSession("user", subID)
-		c.Data["text"] = "Sukces subskrypcji"
+		c.Data["text"] = "Transakcja przebiegła pomyślnie. Dziękujemy za skorzystanie z usługi. Za chwile zostaniesz przekierowany do serwisu. Jeśli to nie nastąpi w ciągu kilku minut, kliknij Dalej."
 		c.Data["URL"] = "/"
 	} else {
 		c.Data["text"] = "Nieudana subskrypcja"

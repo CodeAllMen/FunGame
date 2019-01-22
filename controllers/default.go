@@ -10,6 +10,10 @@ type MainController struct {
 }
 
 func (c *MainController) Get() {
+	subID := c.GetString("subID")
+	if subID != "" {
+		c.SetSession("user", subID)
+	}
 	c.Data["games"] = models.GetGames()
 	c.TplName = "index.html"
 }
