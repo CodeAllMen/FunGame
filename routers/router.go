@@ -3,6 +3,7 @@ package routers
 import (
 	"github.com/MobileCPX/FunGame/controllers"
 	"github.com/MobileCPX/FunGame/controllers/dimoco_pl"
+	"github.com/MobileCPX/FunGame/controllers/mondia_dz"
 	"github.com/astaxie/beego"
 )
 
@@ -25,7 +26,7 @@ func init() {
 	// 波兰退订页面
 	beego.Router("/unsub/page", &dimoco_pl.UnsubPageControllers{})
 	beego.Router("/unsub/result", &dimoco_pl.UnsubResultControllers{})
-	beego.Router("/unsub/msisdn",&dimoco_pl.MsisdnUnsubPageControllers{})
+	beego.Router("/unsub/msisdn", &dimoco_pl.MsisdnUnsubPageControllers{})
 
 	// beego.Router("/pl/start",&dimoco_pl.)
 
@@ -34,4 +35,10 @@ func init() {
 	beego.Router("/h", &controllers.HelpPage{})
 	beego.Router("/p", &controllers.PrivacyPage{})
 	beego.Router("/t", &controllers.TNCPage{})
+
+	// mondia dz 阿尔及利亚
+	// LP页面
+	beego.Router("/mm/dz/lp", &mondia_dz.MondiaDZPageController{}, "Get:LpIndex")
+	beego.Router("/mm/dz/terms", &mondia_dz.MondiaDZPageController{}, "Get:Terms")
+
 }
