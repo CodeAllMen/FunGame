@@ -4,6 +4,7 @@ import (
 	"github.com/MobileCPX/FunGame/controllers"
 	"github.com/MobileCPX/FunGame/controllers/dimoco_pl"
 	"github.com/MobileCPX/FunGame/controllers/mondia_dz"
+	"github.com/MobileCPX/FunGame/controllers/mondia_eg"
 	"github.com/astaxie/beego"
 )
 
@@ -40,5 +41,11 @@ func init() {
 	// LP页面
 	beego.Router("/mm/dz/lp", &mondia_dz.MondiaDZPageController{}, "Get:LpIndex")
 	beego.Router("/mm/dz/terms", &mondia_dz.MondiaDZPageController{}, "Get:Terms")
+
+
+	// mondia dz 阿尔及利亚
+	// LP页面
+	beego.Router("/mm/eg/lp", &mondia_eg.MondiaEGPageController{}, "Get:LpIndex")
+	beego.Router("/mm/eg/terms", &mondia_eg.MondiaEGPageController{}, "Get:Terms")
 
 }
