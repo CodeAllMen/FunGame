@@ -12,6 +12,8 @@ func init() {
 	beego.Router("/", &controllers.MainController{})
 	beego.Router("/login", &controllers.LoginController{})
 
+	beego.Router("/login/request", &controllers.LoginController{},"Post:LoginPost")
+
 	beego.Router("/registere/username", &controllers.RegisteredControllers{}) // 电话号码注册用户
 
 	//Dimoco

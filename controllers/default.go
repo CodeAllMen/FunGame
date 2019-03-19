@@ -14,6 +14,9 @@ func (c *MainController) Get() {
 	if subID != "" {
 		c.SetSession("user", subID)
 	}
+	if c.GetSession("user") != nil {
+		c.Data["sub_id"] = c.GetSession("user").(string)
+	}
 	c.Data["games"] = models.GetGames()
 	c.TplName = "index.html"
 }
@@ -49,6 +52,21 @@ func (c *GamePage) Get() {
 		url := models.GetGamesUrl(id)
 		c.Redirect(url, 302)
 	} else {
+		c.TplName = "login.html"
+	}
+}
+
+func (c *LoginController) LoginPost() {
+	userName := c.GetString("name")
+
+	userID := models.CheckUser(userName)
+
+	if userID != "" {
+		c.SetSession("user", userID)
+		c.Redirect("/", 302)
+
+	} else {
+		c.Data["LoginError"] = true
 		c.TplName = "login.html"
 	}
 }

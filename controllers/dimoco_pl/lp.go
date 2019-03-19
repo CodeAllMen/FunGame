@@ -49,7 +49,7 @@ func (c *UnsubPageControllers) Get() {
 		msisdn = c.Ctx.Input.Session("user").(string)
 	}
 	c.Data["msisdn"] = msisdn
-	c.TplName = "dm/pl/unsub.html"
+	c.TplName = "mondia/eg/unsub.html"
 }
 
 type UnsubResultControllers struct {

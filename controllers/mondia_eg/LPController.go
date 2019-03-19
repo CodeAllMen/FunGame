@@ -15,6 +15,7 @@ type MondiaEGPageController struct {
 
 // LP首页
 func (c *MondiaEGPageController) LpIndex() {
+	fmt.Println(c.Ctx.Request.URL.String())
 	requesParse := strings.Split(c.Ctx.Request.URL.String(), "?")
 	requesData := ""
 	if len(requesParse) == 2 {
@@ -24,6 +25,10 @@ func (c *MondiaEGPageController) LpIndex() {
 	}
 
 	trackID := requestTrackID(requesData)
+	if trackID == "false" {
+		// 404
+		c.StopRun()
+	}
 	c.Data["trackID"] = trackID
 	c.TplName = "mondia/eg/LP.html"
 }
