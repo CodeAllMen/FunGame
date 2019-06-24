@@ -5,6 +5,7 @@ import (
 	"github.com/MobileCPX/FunGame/controllers/dimoco_pl"
 	"github.com/MobileCPX/FunGame/controllers/mondia_dz"
 	"github.com/MobileCPX/FunGame/controllers/mondia_eg"
+	"github.com/MobileCPX/FunGame/controllers/mondia_iq"
 	"github.com/astaxie/beego"
 )
 
@@ -49,5 +50,10 @@ func init() {
 	// LP页面
 	beego.Router("/mm/eg/lp", &mondia_eg.MondiaEGPageController{}, "Get:LpIndex")
 	beego.Router("/mm/eg/terms", &mondia_eg.MondiaEGPageController{}, "Get:Terms")
+
+	// mondia iq 伊拉克
+	// LP页面
+	beego.Router("/mm/iq/lp", &mondia_iq.MondiaIQPageController{}, "Get:LpIndex")
+	beego.Router("/mm/iq/terms", &mondia_iq.MondiaIQPageController{}, "Get:Terms")
 
 }
