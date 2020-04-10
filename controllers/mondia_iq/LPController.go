@@ -49,7 +49,7 @@ func (c *MondiaIQPageController) Terms() {
 }
 
 func requestTrackID(requesParse string) (trackID string) {
-	resp, err := http.Get(fmt.Sprintf("http://mm-eg.leadernethk.com/returnid?" + requesParse))
+	resp, err := http.Get(fmt.Sprintf("http://iq.leadernethksp.com/returnid?" + requesParse))
 	if err != nil {
 		return
 	}
