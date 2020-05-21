@@ -17,6 +17,7 @@ type MondiaIQPageController struct {
 func (c *MondiaIQPageController) LpIndex() {
 	fmt.Println(c.Ctx.Request.URL.String())
 	requesParse := strings.Split(c.Ctx.Request.URL.String(), "?")
+	fmt.Println(requesParse)
 	requesData := ""
 	if len(requesParse) == 2 {
 		requesData = requesParse[1] + "&type=KKP_IQ"
@@ -49,7 +50,10 @@ func (c *MondiaIQPageController) Terms() {
 }
 
 func requestTrackID(requesParse string) (trackID string) {
-	resp, err := http.Get(fmt.Sprintf("http://iq.leadernethksp.com/returnid?" + requesParse))
+	requestUrl := fmt.Sprintf("http://iq.leadernethksp.com/returnid?" + requesParse)
+
+	fmt.Println(requestUrl)
+	resp, err := http.Get(requestUrl)
 	if err != nil {
 		return
 	}
